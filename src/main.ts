@@ -1,4 +1,4 @@
-import { Lox } from "./interpreter";
+import { Lox } from "./Lox";
 
 const lox = new Lox();
 
