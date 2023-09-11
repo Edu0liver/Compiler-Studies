@@ -1,8 +1,5 @@
-import { interpretFile } from "./interpreter";
-import * as fs from "fs"
-import * as path from "path"
+import { Lox } from "./interpreter";
 
-const pathFile = path.join(__dirname, "..", "lox_files", "file.lox");
-const file = fs.readFileSync(pathFile).toString();
+const lox = new Lox();
 
-interpretFile(file as any)
+lox.runFile('./lox_files/file.lox')
