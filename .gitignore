@@ -1,4 +1,5 @@
-/dist
-/node_modules
-package-lock.json
-.env
+/target
+/crafting-interpreter/dist
+/crafting-interpreter/node_modules
+/crafting-interpreter/package-lock.json
+/crafting-interpreter/.env
