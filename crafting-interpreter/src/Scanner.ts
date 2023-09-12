@@ -84,11 +84,6 @@ export class Scanner {
                 this.line++;
                 break;
             case '"': this.string(); break;
-            case 'o':
-                if (this.match('r')) {
-                    this.addToken(TokenType.OR);
-                }
-                break;
           default:
             if (this.isDigit(c)) {
                 this.number();

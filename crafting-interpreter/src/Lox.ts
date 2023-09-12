@@ -8,7 +8,6 @@ export class Lox {
 
     runFile(path: string) {
         const file = fs.readFileSync(path).toString();
-        console.log(file);
         this.interpretFile(file);
         
         this.hadError = false;
