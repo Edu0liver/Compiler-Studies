@@ -1,1 +1,2 @@
-lox
+if (condition) return
+"value"

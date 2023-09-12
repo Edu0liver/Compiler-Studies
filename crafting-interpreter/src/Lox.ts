@@ -1,20 +1,22 @@
 import * as fs from "fs";
 import { exit } from "process";
+import { Scanner } from "./Scanner";
+import { Token } from "./token";
 
 export class Lox {
     private hadError = false;
 
-    async runFile(path: string) {
+    runFile(path: string) {
         const file = fs.readFileSync(path).toString();
-
-        await this.interpretFile(file);
+        console.log(file);
+        this.interpretFile(file);
         
         this.hadError = false;
     }
     
-    async interpretFile(file: string) {
+    interpretFile(file: string) {
         const scanner = new Scanner(file);
-        const tokens: Token[] = await scanner.scanTokens();
+        const tokens: Token[] = scanner.scanTokens();
 
         if (this.hadError) exit(65);
 
@@ -23,11 +25,11 @@ export class Lox {
         }
     }
 
-    async error(line: number, message: string) {
-        await this.report(line, "", message);
+    error(line: number, message: string) {
+        this.report(line, "", message);
     }
     
-    async report(line: number, where: string, message: string) {
+    report(line: number, where: string, message: string) {
         new Error( "[line " + line + "] Error" + where + ": " + message);
         this.hadError = true;
     }
